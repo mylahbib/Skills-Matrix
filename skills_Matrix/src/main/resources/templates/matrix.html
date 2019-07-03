@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns="http://www.ultraq.net.nz/thymeleaf/Layout"
+	th:include="layout :: layout">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+ <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+<title>Matrice de competence</title>
+
+</head>
+
+<body>
+	<div th:fragment="content" class="container" id="trans">
+		<div class="col-lg-8 col-md-offset-2">
+				<div class="panel panel-default">
+					<div class="panel-heading">Matrice de competence</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-striped">
+							
+								<thead>
+									<tr>
+									
+										<th >Categorie</th>
+										<th>Competence</th>
+										<th>Niveau</th>
+									</tr>
+								</thead>
+								
+								<tbody>
+							 <th:block  th:each="categorie:${listCategories}">	
+							 	<tr>
+									<td th:text="${categorie.nom}">
+									<td >
+									<th:block th:each="competence,it:${categorie.competences}" th:if="${competence.user.id_user}==1" >
+										
+										<table>
+											
+											<tr >
+											<td >
+											<span th:text="${competence.type}"></span>
+											</td>
+											
+											</tr>
+										</table>
+	   									
+										</td>
+										<td   >
+						<th:block th:each="competence,it:${categorie.competences}" th:if="${competence.user.id_user}==1" >
+										
+										<div class="">
+											<div    class=" "  >
+											<div class="btn-toolbar">
+												<div class="btn-group">
+												  <button class="btn "   th:classappend="${competence.niveau}==0 ? btn-info : btn-success">0</button>
+						                          <button class="btn " th:classappend="${competence.niveau}==1 ? btn-info : btn-success" >1</button>
+						                          <button class="btn " th:classappend="${competence.niveau}==2 ? btn-info : btn-success" >2</button>
+						                          <button class="btn " th:classappend="${competence.niveau}==3 ? btn-info : btn-success">3</button>
+						                          <button class="btn " th:classappend="${competence.niveau}==4 ? btn-info : btn-success"  >4</button>
+						                        </div>
+						                        <br/>
+						                        
+											</div>
+											</div>
+											</div>
+									</th:block>
+										</td>
+									
+									</tr>
+									<tr>
+									</tr>	
+ 								</th:block>
+ 									
+								 </th:block>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		   <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+    <script th:src="@{webjars/jquery/jquery.min.js}" type="text/javascript"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.min.js"></script>
+    <!-- ECharts -->
+    <script src="/webjars/echarts/echarts.min.js"></script>
+</body>
+
+</html>

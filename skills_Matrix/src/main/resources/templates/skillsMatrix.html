@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	xmlns="http://www.ultraq.net.nz/thymeleaf/Layout"
+	th:include="layout :: layout">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<!-- Bootstrap -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="/webjars/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet">
+<!-- NProgress -->
+<link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+<!-- Custom Theme Style -->
+<link href="/css/custom.min.css" rel="stylesheet">
+<title>Matrice de competence</title>
+
+</head>
+
+<body>
+
+	<div th:fragment="content" class="container" id="trans">
+		<div class="col-lg-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">Matrice de competence</div>
+				<div class="panel-body">
+					<div class="table-responsive">
+						<table class="table table-striped">
+
+							<thead>
+								<tr >
+
+									<th> Categorie</th>
+									<th >Competence</th>
+									<th >Niveau</th>
+								</tr>
+							</thead>
+
+							<tbody>
+
+								<th:block th:each="categorie,itcat:${listCategories}">
+
+									<tr>
+										<td th:text="${categorie.nom}">
+										<td><th:block
+												th:each="competence,it:${categorie.competences}">
+
+												<table>
+
+													<tr>
+														<td><a><span th:text="${competence.type}"></span></a>
+														</td>
+
+													</tr>
+
+												</table>
+												<br/>
+												</th:block>
+												</td>
+
+										
+											<td >
+											<th:block th:each="comp,it:${categorie.competences}"
+											th:if="${comp.user.id_user}==1">
+											
+					<form class="form-horizontal form-label-left form-inline" th:action="@{'/niveau/'+${comp.id_comp}}" th:object="${competence}" method="post" role="form">
+							<div  class="form-group col-md-8    ">
+						
+								<div class="input-group ">
+									
+					       <input type="text" class="form-control"  th:field="*{niveau}" th:value="${comp.niveau}" 
+																	maxlength="1" size="4" />
+																
+									<span class="input-group-addon"  th:text="${comp.niveau}"  id="basic-addon1"></span>
+										
+									<div class="col-md-2 col-md-offset-5 fa">
+												<button class="btn btn-success"   type="submit">go</button>				
+											
+									</div>	
+							</div>
+							
+											</div>
+												
+
+												</form>
+												</th:block>	
+											</td>
+												
+										
+
+
+									</tr>
+
+									<tr>
+									</tr>
+								</th:block>
+								</th:block>
+
+							</tbody>
+
+						</table>
+
+						<div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+    <script src="/webjars/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- jQuery -->
+<script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+<!--  Bootstrap -->
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/webjars/fastclick/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/webjars/nprogress/nprogress.js"></script>
+
+<!--     Custom Theme Scripts
+ -->
+<script src="/js/custom.min.js"></script>

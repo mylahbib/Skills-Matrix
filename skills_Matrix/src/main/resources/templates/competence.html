@@ -1,0 +1,93 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+xmlns="http://www.ultraq.net.nz/thymeleaf/Layout"
+th:include="layout :: layout">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+
+ <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+
+<title>Add Competence </title>
+
+</head>
+		
+		<div  class="login">
+		 <div class="login_wrapper">
+        <div   class="animate form login_form">
+        <div  th:fragment="content" id="register" class="animate form registration_form  ">
+
+          <section class="login_content col-md-6 center-margin ">
+            <form  th:action="@{saveCompetence}" method="post" role="form">
+              <h1>Add Competence</h1>
+              <div class="form-group">
+			    <select class="form-control" th:field="*{categorie.id_cat}"  id="dropOperator">
+			    <option value="0" >select Categorie</option>
+			    <option th:each="categorie : ${categories}" th:value="${categorie.id_cat}" th:text="${categorie.nom}"></option>
+			    </select>
+			</div>
+              <div>
+                <input type="text" class="form-control" placeholder="competence name"  th:field="*{competence.type}" th:value="${competence.type}" required/>
+                  
+                         <div  class="alert alert-danger alert-dismissible fade in" role="alert" th:errors="${competence.type}"></div>
+
+                 
+                
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="niveau" th:field="*{competence.niveau}" th:value="${competence.niveau}"  required />
+                
+                        <div  class="alert alert-danger alert-dismissible fade in" role="alert" th:errors="${competence.niveau}"></div>
+
+                  
+                
+              </div>
+           <!--  <div>
+                <input type="password" class="form-control" placeholder="Password" name="password" required />
+					<div >
+                   
+             <div class="alert alert-danger alert-dismissible fade in" role="alert"  th:errors="${user.password}"></div>
+
+                  </div>                
+              </div>  -->
+              <div>
+                <button class="btn btn-default submit" type="submit">Submit</button>
+              </div>
+
+              <div class="clearfix"></div>
+
+              
+            </form>
+          </section>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-------------->
+  
+         <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.min.js"></script>
+</html>

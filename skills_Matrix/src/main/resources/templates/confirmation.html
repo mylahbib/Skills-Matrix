@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+xmlns="http://www.ultraq.net.nz/thymeleaf/Layout"
+th:include="layout :: layout">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+
+ <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+
+<title>User Form </title>
+
+</head>
+		
+		<div  class="login">
+		 <div class="login_wrapper">
+        <div   class="animate form login_form">
+        <div  th:fragment="content" id="register" class="animate form registration_form  ">
+
+          <section class="login_content">
+         
+              <h1>Confirmation</h1>
+              <div>
+              			<label>ID:</label>
+			<label th:text="${user.id_user}"></label>
+              </div>
+              <div>
+              			<label>FarstName:</label>
+              
+			<label th:text="${user.nom}"></label>
+              </div>
+              <div>
+              			<label>LastName:</label>
+              
+               <label th:text="${user.prenom}"></label>
+
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                
+                <div class="clearfix"></div>
+                <br />
+
+              
+              </div>
+                   <a th:href="@{form}"> <button type="button" class="btn btn-success">Confirm</button></a>
+              		
+          </section>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-------------->
+  
+         <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.min.js"></script>
+</html>

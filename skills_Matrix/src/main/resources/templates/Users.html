@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html 
+ xmlns:th="http://thymeleaf.org"  
+xmlns="http://www.ultraq.net.nz/thymeleaf/Layout"
+th:include="layout :: layout" >
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+ <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+
+<title>Users</title>
+
+</head>
+
+
+
+
+	<div class="container" th:fragment="content" >
+		<div class="row ">
+			<div class="col-lg-6 col-md-offset-7">
+				<form th:action="@{users}" method="get">
+					<label>Mot Cle : </label> <input type="text" name="mc" />
+					<button type="submit">Chercher</button>
+				</form>
+			</div>
+		</div>
+		<div class="row ">
+			<div  >
+				<div class="panel panel-default">
+					<div class="panel-heading">Liste des utilisateurs</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-striped jambo_table bulk_action">
+								<thead>
+									<tr class="headings">
+										<th class="column-title">ID</th>
+										<th class="column-title">Nom</th>
+										<th class="column-title">Prenom</th>
+										<th class="column-title">Action</th>
+										
+									</tr>
+								</thead>
+								<tbody >
+									<tr th:each="p,it:${listUsers}" class="even pointer">
+										<td th:text="${it.index}" >
+										<td th:text="${p.nom}">
+										<td th:text="${p.prenom}">
+										
+										<td class="col-md-55">
+										<a onclick="return confirm('Etes vous sure de supprimer cet element ? ')" th:href="@{delete(id=${p.id_user})}"  class="btn btn-danger btn-xs pull-right">
+										 <i class="fa fa-trash-o"></i> Delete </a>
+										<a href="#" class="btn btn-info btn-xs pull-right "><i class="fa fa-pencil"></i> Edit </a>
+										 
+										 </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+   <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.min.js"></script>
+
+</html>

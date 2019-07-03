@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" 
+xmlns:th="http://thymeleaf.org" >
+
+<head>
+
+ <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Skills Matrix</title>
+
+ <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="background">
+
+
+   <!--  <div class="container" >
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default " id="trans">
+                  <div class="panel-body">
+                  <div class="alert alert-danger"  th:if="${param.error}">
+                   incorrect username o password
+                  </div>
+                  <div class="alert alert-danger" th:if="${param.logout}">
+					 You have been logged out
+                  </div>
+                  </div>
+                    <div class="panel-heading ts">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form   th:action="@{/login}" method="post" role="form">
+                            <fieldset> 
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="username" name="username"  autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+                                Change this to a button or input when using this as a form
+                                <button type="submit"  class="btn btn-lg btn-success btn-block">Login</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+	<div class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+           <div class="alert alert-danger"  th:if="${param.error}">
+                   incorrect username o password
+                  </div>
+                  <div class="alert alert-danger" th:if="${param.logout}">
+					 You have been logged out
+                </div>
+            <form  th:action="@{/login}" method="post" role="form">
+              <h1>Login</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" name="username" autofocus required />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" name="password" required  />
+              </div>
+              <div>
+                <button class="btn btn-default submit" type="submit">Log in</button>
+                <a class="reset_pass" href="#">Lost your password?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                
+                <div class="clearfix"></div>
+                <br />
+
+               <div>
+                  <h1><i class="fa"></i> Skills Matrix!</h1>
+                  <p>©2018 All Rights Reserved. Team : Mouhamed Mounaqid and Youssef Ait My Lahbib. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+    <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/nprogress.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.min.js"></script>
+</html>
